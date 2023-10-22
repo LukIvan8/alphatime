@@ -1,13 +1,13 @@
+import { sb } from "@/service/config";
 import Image from "next/image";
 
-export default function Home() {
+export default async function Home() {
+  const { data, error } = await sb.from("classes").select("*");
+
   return (
-    <main className="flex min-h-[100dvh] flex-col items-center justify-between p-12">
-      <div className="btn gap-4 p-3 items-center h-auto hover:bg-black">
-        <Image width={32} height={32} src="/favicon.ico" alt="vercel logo" />
-        <p className="text-xl font-bold font-mono text-gray-200">
-          Hello world!
-        </p>
+    <main className="flex min-h-[100dvh] flex-col items-center gap-12 p-12">
+      <div className="flex flex-col gap-2 items-start w-2/3 mx-auto">
+        {data && data.map((clss, id) => <div key={id}>{clss.subject}</div>)}
       </div>
     </main>
   );
