@@ -50,7 +50,7 @@ export default function CreateTimetable() {
   );
 }
 
-export function WeekdayForm({
+function WeekdayForm({
   weekday,
   idx,
   updateWeekday,
@@ -119,7 +119,7 @@ export function WeekdayForm({
   );
 }
 
-export function CreateSubjectForm({
+function CreateSubjectForm({
   index,
   updateClasses,
   weekday,
